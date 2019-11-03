@@ -5,15 +5,16 @@ import { store } from "./store";
 import { RestaurantsListPage } from "./components/RestaurantsListPage/";
 import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer"
+import { Loader } from "./components/Loader/Loader";
 
 export const App = () => (
     <Provider store={store}>
-        <div className="page">
-            <Header />
-            <main className="content">
+        <Header />
+        <main className="page">
+            <div className="content">
                 <RestaurantsListPage />
-            </main>
-            <Footer />
-        </div>
+            </div>
+        </main>
+        <Footer />
     </Provider>
 );
