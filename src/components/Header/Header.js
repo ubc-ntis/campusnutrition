@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Header.scss";
-import { Input } from "../Input/Input";
+import { Input } from "../Input";
 
 export class Header extends Component {
     state = {

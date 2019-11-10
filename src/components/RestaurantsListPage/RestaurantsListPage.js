@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { RestaurantCard } from "../RestaurantCard/RestaurantCard";
+import { RestaurantCard } from "../RestaurantCard";
 import "./RestaurantsListPage.scss";
-import { Loader } from "../Loader/Loader";
-import { Error } from "../Error/Error";
+import { Loader } from "../Loader";
+import { Error } from "../Error";
 
 const DEFAULT_ETA_RANGE = "20 - 30 min";
 
