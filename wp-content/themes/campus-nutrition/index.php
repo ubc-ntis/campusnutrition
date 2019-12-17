@@ -1,19 +1,10 @@
 <?php
-    function testAddOne($value) {
-        echo 1 + $value;
-    }
+    
+    while(have_posts()) {
+        the_post(); ?>
+        <h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+        <?php the_content(); ?>
+        <hr>
+    <?php }
+
 ?>
-
-<h1>
-    <?php 
-        bloginfo('name');
-    ?>
-</h1>
-
-<p>
-    <?php 
-        bloginfo('description');
-        echo nl2br("\n");
-        testAddOne(4);
-    ?>
-</p>
