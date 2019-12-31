@@ -26,6 +26,7 @@ SECRET_KEY = 'v%cni)^lez5k8l@w(g@7b5kxz+eqj&woi@rt73dnkn=-^e^+0t'
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    '127.0.0.1',
     'localhost',
 ]
 
@@ -82,7 +83,7 @@ DATABASES = {
         'ENGINE':   'django.db.backends.mysql',
         'NAME':     'campusnutrition',
         'USER':     'root',       # mySQL username
-        'PASSWORD': '<password>', # mySQL password
+        'PASSWORD': 'hello123', # mySQL password
         'HOST':     'localhost',  # host name
     }
 }
