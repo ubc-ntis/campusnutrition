@@ -1,0 +1,95 @@
+{% load static %}
+{% load file_exists %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'restaurants/style.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<div id="root">
+
+  <header>
+      <nav class="nav-wrapper transparent z-depth-0">
+          <div class="container">
+            <a href="/" class="brand-logo">
+              <img
+                src="{% static 'restaurants/images/campusnutrition_logo.png' %}"
+                alt="Campus Nutrition Logo"
+                class="logo-image"
+              />
+            </a>
+            <a href="" class="sidenav-trigger" data-target="mobile-menu">
+              <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="sass.html">GRID</a></li>
+              <li><a href="badges.html">MAP</a></li>
+              <li><a href="collapsible.html">ABOUT</a></li>
+            </ul>
+            <ui id="mobile-menu" class="sidenav grey lighten-2">
+                <li><a href="sass.html">GRID</a></li>
+                <li><a href="badges.html">MAP</a></li>
+                <li><a href="collapsible.html">ABOUT</a></li>   
+            </ui>
+          </div>
+      </nav>
+
+      <hr>
+
+      <div class="search-container">
+          <i class="material-icons">search</i>
+          <input type="search" class="search-query" placeholder="Search Restaurants">
+          <i class="material-icons">refresh</i>
+      </div>
+
+  </header>
+
+  <main class="page">
+    <div class="content">
+        {% if restaurant_list %}
+            <div class="restaurants-list">
+                {% for restaurant in restaurant_list %}
+                    <div class="restaurant-card">
+                        <img
+                            src="{% static 'restaurants/images/stores/' %}{{ restaurant.img }}" 
+                            alt="{{ restaurant.name }}"
+                            class="restaurant-card-img"
+                        />
+                        <h2 class="restaurant-card-title">{{ restaurant.name }}</h2>
+                        <div class="restaurant-card-categories">
+                            {{ restaurant.category }}
+                        </div>
+                    </div>
+                {% endfor %}
+            <div>
+        {% endif %}
+    </div>
+  </main>
+
+  <footer class="footer">
+
+  </footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script>
+
+  $(document).ready(function() {
+    $(".sidenav").sidenav();
+  })
+
+  wrap = $(".search-container");
+
+  $(window).on("scroll", function(e) {
+
+    if ($(this).scrollTop() > 147) {
+      $(wrap).addClass("fix-search");
+    } else {
+      $(wrap).removeClass("fix-search");
+    }
+
+  });
+
+</script>
