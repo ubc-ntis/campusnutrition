@@ -2,6 +2,9 @@ from django.db import models
 
 
 class Restaurant(models.Model):
+    # Area restaurants correspond too
+    area     = models.CharField(max_length=256)
+
     # Name of the restaurant
     name     = models.CharField(max_length=256)
 
