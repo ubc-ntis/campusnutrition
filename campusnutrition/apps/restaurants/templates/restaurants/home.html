@@ -1,0 +1,65 @@
+{% extends "restaurants/base.html" %}
+{% load static %}
+{% load file_exists %}
+
+
+{% block search %}
+<div class="area-image-container">
+    <img
+        src="{% static 'restaurants/images/areas/ubc.jpg' %}"
+        alt="ubc image"
+        class="area-image"
+    >
+    <img 
+        src="{% static 'restaurants/images/campusnutrition_full_logo.png' %}"
+        alt="Campus Nutrition logo"
+        class="area-campusnutrition-logo"
+    >
+    <div class="area-image-text">Places to eat at UBC Vancouver</div>
+</div>
+
+<div class="search-container">
+    <div class="search-icon-container">
+        <i class="material-icons">search</i>
+    </div>
+    <div class="search-dropdown">
+        <span>Restaurant</span>
+        <div class="search-dropdown-content">
+        <div class="search-dropdown-item">Restaurant</div>
+        <div class="search-dropdown-item">Category</div>
+        </div>
+    </div>
+    <div class="dropdown-icon-container">
+        <i class="material-icons">arrow_drop_down</i>
+    </div>
+    <input type="search" class="search-query" placeholder="Search Restaurants">
+    <div class="refresh-icon-container">
+        <i class="material-icons">refresh</i>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<main class="page">
+
+    <div class="content">
+        {% if restaurant_list %}
+            <div class="restaurants-list">
+                {% for restaurant in restaurant_list %}
+                    <div class="restaurant-card">
+                        <img
+                            src="{% static 'restaurants/images/stores/' %}{{ restaurant.img }}" 
+                            alt="{{ restaurant.name }}"
+                            class="restaurant-card-img"
+                        />
+                        <h2 class="restaurant-card-title">{{ restaurant.name }}</h2>
+                        <div class="restaurant-card-categories">
+                            {{ restaurant.category }}
+                        </div>
+                    </div>
+                {% endfor %}
+            <div>
+        {% endif %}
+    </div>
+</main>
+{% endblock %}

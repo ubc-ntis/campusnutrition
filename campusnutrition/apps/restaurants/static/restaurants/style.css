@@ -32,6 +32,42 @@ nav ul {
 
 /* LOGO END ////////////////////////////////////////////////// */
 
+/* AREA START //////////////////////////////////////////////// */
+
+.area-image-container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.area-image {
+    opacity: 0.7;
+    width: 100%;
+}
+
+.area-image-text {
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    font-size: 3vw;
+    font-weight: 500;
+    color: black;
+    position: absolute;
+    top: 33%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+}
+
+.area-campusnutrition-logo {
+    position: absolute;
+    top: 0%;
+    left: 60%;
+    width: 50%;
+    height: auto;
+}
+
+/* AREA END ////////////////////////////////////////////////// */
+
+
+
 /* SEARCH START ////////////////////////////////////////////// */
 
 .search-container {

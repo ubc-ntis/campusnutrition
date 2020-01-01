@@ -35,27 +35,7 @@
           </div>
       </nav>
 
-      <hr>
-
-      <div class="search-container">
-          <div class="search-icon-container">
-              <i class="material-icons">search</i>
-          </div>
-          <div class="search-dropdown">
-            <span>Restaurant</span>
-            <div class="search-dropdown-content">
-              <div class="search-dropdown-item">Restaurant</div>
-              <div class="search-dropdown-item">Category</div>
-            </div>
-          </div>
-          <div class="dropdown-icon-container">
-              <i class="material-icons">arrow_drop_down</i>
-          </div>
-          <input type="search" class="search-query" placeholder="Search Restaurants">
-          <div class="refresh-icon-container">
-              <i class="material-icons">refresh</i>
-          </div>
-      </div>
+      {% block search %}{% endblock %}
 
     </header>
 
