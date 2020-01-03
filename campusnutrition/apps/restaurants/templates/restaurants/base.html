@@ -1,117 +1,146 @@
-{% load static %}
-{% load file_exists %}
+{% load static %} {% load file_exists %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'restaurants/style.css' %}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'restaurants/style.css' %}"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+/>
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+  crossorigin="anonymous"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <div id="root">
-
   <header>
-      <nav class="nav-wrapper transparent z-depth-0">
-          <div class="container">
-            <a href="/" class="brand-logo">
-              <img
-                src="{% static 'restaurants/images/campusnutrition_logo.png' %}"
-                alt="Campus Nutrition Logo"
-                class="logo-image"
-              />
-            </a>
-            <a href="" class="sidenav-trigger" data-target="mobile-menu">
-              <i class="material-icons">menu</i>
-            </a>
-            <ul class="right hide-on-med-and-down">
-              <li><a href="/grid">HOME</a></li>
-              <li><a href="/map">MAP</a></li>
-              <li><a href="/about">ABOUT</a></li>
-              <li><a href="/contact">CONTACT</a></li>
-            </ul>
-            <ui id="mobile-menu" class="sidenav grey lighten-2">
-                <li><a href="sass.html">GRID</a></li>
-                <li><a href="badges.html">MAP</a></li>
-                <li><a href="collapsible.html">ABOUT</a></li>   
-            </ui>
-          </div>
-      </nav>
-
-      {% block search %}{% endblock %}
-
-    </header>
-
-  {% block content %}{% endblock %}
-
-  <footer class="footer-distributed">
-
-    <div class="footer-space"></div>
-
-    <div class="footer-container">
-
-        <div class="footer-left">
-          
+    <nav class="nav-wrapper z-depth-0">
+      <div class="container">
+        <a href="/" class="brand-logo">
           <img
             src="{% static 'restaurants/images/campusnutrition_logo.png' %}"
             alt="Campus Nutrition Logo"
-            class="logo-image-footer"
+            class="logo-image"
           />
+        </a>
+        <a href="" class="sidenav-trigger" data-target="mobile-menu">
+          <i class="material-icons">menu</i>
+        </a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/grid">HOME</a></li>
+          <li><a href="/map">MAP</a></li>
+          <li><a href="/about">ABOUT</a></li>
+          <li><a href="/contact">CONTACT</a></li>
+        </ul>
+        <ui id="mobile-menu" class="sidenav grey lighten-2">
+          <li><a href="sass.html">GRID</a></li>
+          <li><a href="badges.html">MAP</a></li>
+          <li><a href="collapsible.html">ABOUT</a></li>
+        </ui>
+      </div>
+    </nav>
 
-          <div class="campus-name-logo">CAMPUS NUTRITION</div>
-    
+    {% block search %}{% endblock %}
+  </header>
+
+  {% block content %}{% endblock %}
+
+  <!-- Site footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <h6>About</h6>
+          <p class="text-justify">
+            Campus Nutrition is a not-for-profit organization committed to improving 
+            campus health and advancing student diet through advocacy, awareness, and 
+            education. Our aim is to address and minimize current barriers associate with 
+            consuming a healthy diet and promote good nutrition among university populations 
+            therefore fostering health and preventing health problems.
+          </p>
         </div>
-  
-        <div class="footer-middle">
 
-          <ui>
-            <li><a href="/about">About us</a></li>
-            <li><a href="/about">Why campus nutrition</a></li>
-            <li><a href="/contact">Contact us</a></li>
-          </ui>
-
+        <div class="col-xs-6 col-md-3">
+          <h6>Quick Links</h6>
+          <ul class="footer-links">
+            <li><a href="http://scanfcode.com/about/">About Us</a></li>
+            <li>
+              <a href="http://scanfcode.com/contribute-at-scanfcode/"
+                >Why Campus Nutrition</a
+              >
+            </li>
+            <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
+          </ul>
         </div>
-    
-        <div class="footer-right">
-  
+
+        <div class="col-xs-6 col-md-3">
+          <h6>Join</h6>
           <div class="join-us-container">
-            <div class="join-us">Join our email list:</div>
+            <div class="join-us">
+              Join our email list to stay up to date with the latest from Campus
+              Nutrition
+            </div>
             <div class="email-input-container">
-                <input class="email-input" placeholder="Enter your email address">
-                <button class="email-submit" type="submit">
-                    <i class="material-icons icon-white">arrow_right_alt</i>
-                </button>
-              </div>
+              <input
+                class="email-input"
+                placeholder="Enter your email address"
+              />
+              <button class="email-submit" type="submit">
+                <i class="material-icons icon-white">arrow_right_alt</i>
+              </button>
+            </div>
           </div>
-
-          <div class="campusnutrition-email">admin@campusnutrition.ca</div>
-
-          <div class="copyright">Copyright © 2020 Campus Nutrition</div>
-
         </div>
+      </div>
+      <hr />
     </div>
-  
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-6 col-xs-12">
+          <p class="copyright-text">
+            Copyright &copy; 2020 All Rights Reserved by Campus Nutrition.
+          </p>
+        </div>
 
-  
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <ul class="social-icons">
+            <li>
+              <a class="email" href="#"><i class="fa fa-envelope"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </footer>
-
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 <script>
-
   $(document).ready(function() {
     $(".sidenav").sidenav();
-  })
+  });
 
   wrap = $(".search-container");
 
   $(window).on("scroll", function(e) {
-
     if ($(this).scrollTop() > 147) {
       $(wrap).addClass("fix-search");
     } else {
       $(wrap).removeClass("fix-search");
     }
-
   });
-
 </script>
