@@ -23,6 +23,8 @@
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
+<link rel="shortcut icon" href="{% static 'restaurants/images/favicon.ico' %}" />
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <div id="root">
@@ -31,7 +33,7 @@
       <div class="container">
         <a href="/" class="brand-logo">
           <img
-            src="{% static 'restaurants/images/campusnutrition_logo.png' %}"
+            src="{% static 'restaurants/images/header_campusnutrition.png' %}"
             alt="Campus Nutrition Logo"
             class="logo-image"
           />
@@ -65,15 +67,14 @@
         <div class="col-sm-12 col-md-6">
           <h6>About</h6>
           <p class="text-justify">
-            Campus Nutrition is a not-for-profit organization committed to improving 
-            campus health and advancing student diet through advocacy, awareness, and 
-            education. Our aim is to address and minimize current barriers associate with 
-            consuming a healthy diet and promote good nutrition among university populations 
-            therefore fostering health and preventing health problems.
+            Campus Nutrition is an independent non-profit organization committed to improving 
+            campus health and students’ diets. Its aim is to address and minimize current barriers 
+            that prevent people from consuming a healthy diet through advocacy, awareness, and 
+            education about nutrition. Campus Nutrition is not affiliated with UBC.
           </p>
         </div>
 
-        <div class="col-xs-6 col-md-3">
+        <div class="quick-links col-xs-6 col-md-3">
           <h6>Quick Links</h6>
           <ul class="footer-links">
             <li><a href="http://scanfcode.com/about/">About Us</a></li>
@@ -91,17 +92,23 @@
           <div class="join-us-container">
             <div class="join-us">
               Join our email list to stay up to date with the latest from Campus
-              Nutrition
+              Nutrition!
             </div>
-            <div class="email-input-container">
-              <input
-                class="email-input"
-                placeholder="Enter your email address"
-              />
-              <button class="email-submit" type="submit">
-                <i class="material-icons icon-white">arrow_right_alt</i>
-              </button>
+            <div class="success-message" style="display: none">
+              Success!
             </div>
+            <form>
+                <div class="footer-email-input-container">
+                    <input
+                      class="footer-email-input"
+                      placeholder="Enter your email address"
+                      type="email" required
+                    />
+                    <button class="footer-email-submit" type="submit">
+                      <i class="material-icons icon-white">arrow_right_alt</i>
+                    </button>
+                </div>
+            </form>
           </div>
         </div>
       </div>
@@ -143,4 +150,10 @@
       $(wrap).removeClass("fix-search");
     }
   });
+
+  $("form").submit(function() {
+    $(".success-message").show();
+    return false;
+  })
+
 </script>

@@ -13,7 +13,7 @@ nav a {
 }
 
 .nav-wrapper {
-  background-color: rgb(66, 86, 100);
+  background-color: rgb(21, 88, 10);
   font-size: 14px;
   font-weight: bold;
 }
@@ -22,12 +22,18 @@ nav ul {
   font-size: 20px;
 }
 
+.shadow {
+  -webkit-box-shadow: 0 6px 4px -4px black !important;
+  -moz-box-shadow: 0 6px 4px -4px black !important;
+  box-shadow: 0 6px 4px -4px black !important;
+}
+
 /* NAV BAR END /////////////////////////////////////////////// */
 
 /* LOGO START //////////////////////////////////////////////// */
 
 .logo-image {
-  width: 70px;
+  width: 180px;
   height: auto;
 }
 
@@ -39,10 +45,10 @@ nav ul {
   position: relative;
   text-align: center;
   color: white;
+  box-shadow: 0px -8px 5px rgb(27, 117, 15);
 }
 
 .area-image {
-  opacity: 0.7;
   width: 100%;
 }
 
@@ -59,9 +65,9 @@ nav ul {
 
 .area-campusnutrition-logo {
   position: absolute;
-  top: 0%;
-  left: 70%;
-  width: 30%;
+  top: 5%;
+  left: 75%;
+  width: 20%;
   height: auto;
 }
 
@@ -298,135 +304,178 @@ nav ul {
 /* FOOTER START ////////////////////////////////////////////// */
 
 .site-footer {
-    background-color: rgb(66, 86, 100);
-    padding: 45px 0 20px;
-    font-size: 15px;
-    line-height: 24px;
-    color: white;
+  background-color: rgb(66, 86, 100);
+  padding: 45px 0 20px;
+  padding-bottom: 200px;
+  font-size: 15px;
+  line-height: 24px;
+  color: white;
+}
+.site-footer hr {
+  border-top-color: #bbb;
+  opacity: 0.5;
+}
+.site-footer hr.small {
+  margin: 20px 0;
+}
+.site-footer h6 {
+  color: rgb(0, 224, 162);
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-top: 5px;
+  letter-spacing: 2px;
+}
+
+.site-footer .social-icons {
+  text-align: right;
+}
+.site-footer .social-icons a {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  padding-top: 10px;
+  margin-left: 6px;
+  margin-right: 0;
+  border-radius: 100%;
+  background-color: #33353d;
+}
+
+.footer-links a {
+  color: white;
+}
+
+.footer-links a:hover {
+  color: rgb(0, 224, 162);
+  text-decoration: none;
+}
+.copyright-text {
+  margin: 0;
+}
+@media (max-width: 991px) {
+  .site-footer [class^="col-"] {
+    margin-bottom: 30px;
   }
-  .site-footer hr {
-    border-top-color: #bbb;
-    opacity: 0.5;
+}
+@media (max-width: 767px) {
+  .site-footer {
+    padding-bottom: 0;
   }
-  .site-footer hr.small {
-    margin: 20px 0;
-  }
-  .site-footer h6 {
-    font-size: 16px;
-    text-transform: uppercase;
-    margin-top: 5px;
-    letter-spacing: 2px;
-  }
-  
+  .site-footer .copyright-text,
   .site-footer .social-icons {
-    text-align: right;
-  }
-  .site-footer .social-icons a {
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    padding-top: 10px;
-    margin-left: 6px;
-    margin-right: 0;
-    border-radius: 100%;
-    background-color: #33353d;
-  }
-  .copyright-text {
-    margin: 0;
-  }
-  @media (max-width: 991px) {
-    .site-footer [class^="col-"] {
-      margin-bottom: 30px;
-    }
-  }
-  @media (max-width: 767px) {
-    .site-footer {
-      padding-bottom: 0;
-    }
-    .site-footer .copyright-text,
-    .site-footer .social-icons {
-      text-align: center;
-    }
-  }
-  
-  .social-icons {
-    padding-left: 0;
-    margin-bottom: 0;
-    list-style: none;
-  }
-  .social-icons li {
-    display: inline-block;
-    margin-bottom: 4px;
-  }
-  .social-icons li.title {
-    margin-right: 15px;
-    text-transform: uppercase;
-    color: #96a2b2;
-    font-weight: 700;
-    font-size: 13px;
-  }
-  .social-icons a {
-    background-color: #eceeef;
-    color: #818a91;
-    font-size: 16px;
-    display: inline-block;
-    line-height: 44px;
-    width: 44px;
-    height: 44px;
     text-align: center;
-    margin-right: 8px;
-    border-radius: 100%;
-    -webkit-transition: all 0.2s linear;
-    -o-transition: all 0.2s linear;
-    transition: all 0.2s linear;
   }
-  .social-icons a:active,
-  .social-icons a:focus,
-  .social-icons a:hover {
-    color: #fff;
-    background-color: #29aafe;
-  }
-  
-  .social-icons a.email:hover {
-    background-color: #3b5998;
-  }
-  
-  @media (max-width: 767px) {
-    .social-icons li.title {
-      display: block;
-      margin-right: 0;
-      font-weight: 600;
-    }
-  }
-
-  .email-input-container {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
 }
 
-.email-input {
-    border-style: solid !important;
-    border-color: black !important;
-    margin-bottom: 0 !important;
-    padding-left: 10px !important;
+.social-icons {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+.social-icons li {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+.social-icons li.title {
+  margin-right: 15px;
+  text-transform: uppercase;
+  color: #96a2b2;
+  font-weight: 700;
+  font-size: 13px;
+}
+.social-icons a {
+  background-color: #eceeef;
+  color: #818a91;
+  font-size: 16px;
+  display: inline-block;
+  line-height: 44px;
+  width: 44px;
+  height: 44px;
+  text-align: center;
+  margin-right: 8px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.social-icons a:active,
+.social-icons a:focus,
+.social-icons a:hover {
+  color: #fff;
+  background-color: #29aafe;
 }
 
-.email-submit {
-    background-color: black;
-    border-style: none;
+.social-icons a.email:hover {
+  background-color: #3b5998;
+}
+
+@media (max-width: 767px) {
+  .social-icons li.title {
+    display: block;
+    margin-right: 0;
+    font-weight: 600;
+  }
+}
+
+.footer-email-input-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  background-color:white;
+}
+
+.footer-email-input {
+  border-style: none !important;
+  margin-bottom: 0 !important;
+  padding-left: 10px !important;
+  color: black !important;
+}
+
+.footer-email-input:hover {
+  border-style: none !important;
+  margin-bottom: 0 !important;
+  padding-left: 10px !important;
+  color: black !important;
+}
+
+.success-message {
+  border-style: solid;
+  border-color: rgb(0, 224, 162);
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+
+.footer-email-submit {
+  -moz-transition: all .2s ease-in;
+  -o-transition: all .2s ease-in;
+  -webkit-transition: all .2s ease-in;
+  background-color: black;
+  border-style: none;
+}
+
+.footer-email-submit:hover {
+  background-color: rgba(0, 224, 162, 0.2);
+}
+
+.footer-email-submit:focus {
+  outline: 0;
+}
+
+.footer-email-submit:not(:hover) {
+  background-color: black;
 }
 
 i.icon-white {
-    color: white;
+  color: rgb(0, 224, 162);
 }
 
 .join-us {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .campusnutrition-email {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 /* FOOTER END //////////////////////////////////////////////// */
