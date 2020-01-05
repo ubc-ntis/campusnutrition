@@ -83,7 +83,7 @@ DATABASES = {
         'ENGINE':   'django.db.backends.mysql',
         'NAME':     'campusnutrition',
         'USER':     'root',       # mySQL username
-        'PASSWORD': 'hello123', # mySQL password
+        'PASSWORD': '<password>', # mySQL password
         'HOST':     'localhost',  # host name
     }
 }
@@ -126,3 +126,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Use email console backend for development
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# EMAIL settings
+EMAIL_HOST          = '<email_host>'
+EMAIL_HOST_USER     = '<email_host_user>'
+EMAIL_HOST_PASSWORD = '<email_host_password'
+EMAIL_USE_TLS       = True
+EMAIL_PORT          = 587
