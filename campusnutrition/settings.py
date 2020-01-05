@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -125,7 +126,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') 
+STATIC_URL  = '/static/'
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
 # Use email console backend for development
@@ -137,3 +141,5 @@ EMAIL_HOST_USER     = '<email_host_user>'
 EMAIL_HOST_PASSWORD = '<email_host_password'
 EMAIL_USE_TLS       = True
 EMAIL_PORT          = 587
+
+GOOGLE_MAPS_API_KEY = "<google_maps_api_key>"
