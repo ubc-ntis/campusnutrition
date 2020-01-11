@@ -1,159 +1,171 @@
 {% load static %} {% load file_exists %}
 
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="{% static 'restaurants/style.css' %}"
-/>
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-/>
-<link
-  href="https://fonts.googleapis.com/icon?family=Material+Icons"
-  rel="stylesheet"
-/>
-<link
-  rel="stylesheet"
-  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-  crossorigin="anonymous"
-/>
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-/>
-<link rel="shortcut icon" href="{% static 'restaurants/images/favicon.ico' %}" />
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, inital-scale=1.0" />
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'restaurants/css/base.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="shortcut icon"
+      href="{% static 'restaurants/images/favicon.ico' %}"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-<div id="root">
-  <header>
-    <nav class="nav-wrapper z-depth-0">
-      <div class="container">
-        <a href="/" class="brand-logo">
-          <img
-            src="{% static 'restaurants/images/header_campusnutrition.png' %}"
-            alt="Campus Nutrition Logo"
-            class="logo-image"
-          />
-        </a>
-        <a href="" class="sidenav-trigger" data-target="mobile-menu">
-          <i class="material-icons">menu</i>
-        </a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="/grid">HOME</a></li>
-          <li><a href="/map">MAP</a></li>
-          <li><a href="/about">ABOUT</a></li>
-          <li><a href="/contact">CONTACT</a></li>
-        </ul>
-        <ui id="mobile-menu" class="sidenav grey lighten-2">
-          <li><a href="sass.html">GRID</a></li>
-          <li><a href="badges.html">MAP</a></li>
-          <li><a href="collapsible.html">ABOUT</a></li>
-        </ui>
-      </div>
-    </nav>
+    <title>{% block title %}{% endblock %}</title>
 
-    {% block search %}{% endblock %}
-  </header>
-
-  {% block content %}{% endblock %}
-
-  <!-- Site footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12 col-md-6">
-          <h6>About</h6>
-          <p class="text-justify">
-            Campus Nutrition is an independent non-profit organization committed to improving 
-            campus health and students’ diets. Its aim is to address and minimize current barriers 
-            that prevent people from consuming a healthy diet through advocacy, awareness, and 
-            education about nutrition. Campus Nutrition is not affiliated with UBC.
-          </p>
-        </div>
-
-        <div class="quick-links col-xs-6 col-md-3">
-          <h6>Quick Links</h6>
-          <ul class="footer-links">
-            <li><a href="http://scanfcode.com/about/">About Us</a></li>
-            <li>
-              <a href="http://scanfcode.com/contribute-at-scanfcode/"
-                >Why Campus Nutrition</a
-              >
-            </li>
-            <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
-          </ul>
-        </div>
-
-        <div class="col-xs-6 col-md-3">
-          <h6>Join</h6>
-          <div class="join-us-container">
-            <div class="join-us">
-              Join our email list to stay up to date with the latest from Campus
-              Nutrition!
+    {% block extra_head %}{% endblock %}
+  </head>
+  <body>
+    <div id="root">
+      <header>
+        <div class="navbar-fixed">
+          <nav class="nav-wrapper z-depth-0">
+            <div class="container">
+              <a href="/" class="brand-logo">
+                <img
+                  src="{% static 'restaurants/images/campus_nutrition_logo_header.png' %}"
+                  alt="Campus Nutrition Logo"
+                  class="logo-image"
+                />
+              </a>
+              <a href="" class="sidenav-trigger" data-target="mobile-menu">
+                <i class="material-icons">menu</i>
+              </a>
+              <ul class="right hide-on-med-and-down">
+                <li><a href="/">Home</a></li>
+                <li><a href="map">Map</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+              </ul>
+              <ui id="mobile-menu" class="sidenav grey lighten-2">
+                <li><a href="/">Home</a></li>
+                <li><a href="map">Map</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+              </ui>
             </div>
-            <div class="success-message" style="display: none">
-              Success!
+          </nav>
+        </div>
+        {% block search %}{% endblock %}
+      </header>
+
+      {% block content %}{% endblock %}
+
+      <footer class="site-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <h6>About</h6>
+              <p class="text-justify">
+                Campus Nutrition is an independent non-profit organization
+                committed to improving campus health and students’ diets. Its
+                aim is to address and minimize current barriers that prevent
+                people from consuming a healthy diet through advocacy,
+                awareness, and education about nutrition. Campus Nutrition is
+                not affiliated with UBC.
+              </p>
             </div>
-            <form>
-                <div class="footer-email-input-container">
+
+            <div class="quick-links col-xs-6 col-md-3">
+              <h6>Quick Links</h6>
+              <ul class="footer-links">
+                <li><a href="/about">About Us</a></li>
+                <li>
+                  <a href="/why"
+                    >Why Campus Nutrition</a
+                  >
+                </li>
+                <li><a href="/contact">Contact Us</a></li>
+              </ul>
+            </div>
+
+            <div class="col-xs-6 col-md-3">
+              <h6>Join</h6>
+              <div class="join-us-container">
+                <div class="join-us">
+                  Join our email list to stay up to date with the latest from
+                  Campus Nutrition!
+                </div>
+                <div class="success-message" style="display: none">
+                  Success!
+                </div>
+                <form class="footer-input-form">
+                  <div class="footer-email-input-container">
                     <input
                       class="footer-email-input"
                       placeholder="Enter your email address"
-                      type="email" required
+                      type="email"
+                      required
                     />
                     <button class="footer-email-submit" type="submit">
                       <i class="material-icons icon-white">arrow_right_alt</i>
                     </button>
-                </div>
-            </form>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <hr />
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+              <p class="copyright-text">
+                Copyright &copy; 2020 All Rights Reserved by Campus Nutrition.
+              </p>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <ul class="social-icons">
+                <li>
+                  <a class="email" href="mailto:admin@campusnutrition.ca"
+                    ><i class="fa fa-envelope"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      <hr />
+      </footer>
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-sm-6 col-xs-12">
-          <p class="copyright-text">
-            Copyright &copy; 2020 All Rights Reserved by Campus Nutrition.
-          </p>
-        </div>
-
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <ul class="social-icons">
-            <li>
-              <a class="email" href="#"><i class="fa fa-envelope"></i></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
-</div>
+  </body>
+</html>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+{% block extra_js %}{% endblock %}
 
 <script>
   $(document).ready(function() {
     $(".sidenav").sidenav();
   });
 
-  wrap = $(".search-container");
-
-  $(window).on("scroll", function(e) {
-    if ($(this).scrollTop() > 147) {
-      $(wrap).addClass("fix-search");
-    } else {
-      $(wrap).removeClass("fix-search");
-    }
-  });
-
-  $("form").submit(function() {
+  $(".footer-input-form").submit(function() {
     $(".success-message").show();
     return false;
-  })
-
+  });
 </script>

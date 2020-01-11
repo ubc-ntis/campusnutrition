@@ -1,0 +1,74 @@
+{% extends "restaurants/base.html" %} {% load static %} {% load file_exists %}
+{% block content %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'restaurants/css/contact.css' %}"
+/>
+
+<div class="feedback-header-container">
+  <div class="feedback-header-title">CONTACT US</div>
+  <div class="additional-contact-info">
+    We’d love to hear from you! Questions? Comments? Suggestions?
+  </div>
+</div>
+
+<div class="contact-form-container">
+  <img
+    src="{% static 'restaurants/images/contact_us.jpeg' %}"
+    alt="Campus Nutrition logo"
+  />
+  <form method="post" class="feedback-form">
+    {% csrf_token %}
+    {{ form.ad_p }}
+    <div class="input-container">
+      <div class="form-group field">
+        <input
+          type="text"
+          class="form-field"
+          placeholder="Name"
+          name="name"
+          id="id_name"
+          required
+        />
+        <label for="id_name" class="form-label">Name</label>
+      </div>
+      <div class="form-group field">
+        <input
+          type="email"
+          class="form-field"
+          placeholder="Email"
+          name="from_email"
+          id="id_from_email"
+          required
+        />
+        <label for="id_from_email" class="form-label">Email</label>
+      </div>
+      <div class="form-group field">
+        <input
+          type="text"
+          class="form-field"
+          placeholder="Subject"
+          name="subject"
+          id="id_subject"
+          required
+        />
+        <label for="id_subject" class="form-label">Subject</label>
+      </div>
+    </div>
+    <div class="textarea-container">
+        <textarea
+            name="message"
+            class="feedback-input"
+            placeholder="Comment"
+            id="id_message"
+            required
+        ></textarea>
+        <label for="id_message"></label>
+    </div>
+
+    <input class="contact-submit" type="submit" value="SUBMIT" />
+  </form>
+</div>
+
+{% endblock %}

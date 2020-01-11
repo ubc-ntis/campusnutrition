@@ -1,27 +1,108 @@
-{% extends "restaurants/base.html" %}
-{% load static %}
-{% load file_exists %}
-
+{% extends "restaurants/base.html" %} {% load static %} {% load file_exists %}
 {% block content %}
-<main class="page">
-    <div class="content">
-        {% if restaurant_list %}
-            <div class="restaurants-list">
-                {% for restaurant in restaurant_list %}
-                    <div class="restaurant-card">
-                        <img
-                            src="{% static 'restaurants/images/stores/' %}{{ restaurant.img }}" 
-                            alt="{{ restaurant.name }}"
-                            class="restaurant-card-img"
-                        />
-                        <h2 class="restaurant-card-title">{{ restaurant.name }}</h2>
-                        <div class="restaurant-card-categories">
-                            {{ restaurant.category }}
-                        </div>
-                    </div>
-                {% endfor %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'restaurants/css/about.css' %}"
+/>
+
+<div class="feedback-header-container">
+  <div class="feedback-header-title">ABOUT US</div>
+</div>
+
+<div id="LandingPagesApp">
+  <div data-reactroot="">
+    <div class="sc-jKJlTe dQohoe" <div>
+      <!-- react-empty: 25 --><!-- react-empty: 26 -->
+      <div class="sc-epnACN bDNNbo sc-EHOje dNDakg" size="96">
+        <section class="sc-dfVpRl hKOiml sc-rBLzX dFoZcU" size="16">
+          <div class="sc-EHOje jyUtsF" size="24">
+            <p
+              class="sc-gzOgki kVoFCk sc-ktHwxA dHDaJd"
+              size="20"
+              color="#999999"
+              font-family="DD-TTNorms"
+            >
+              Campus Nutrition is an independent non-profit organization committed to improving campus health and students’ diets. Its aim is to address and minimize current barriers that prevent people from consuming a healthy diet through advocacy, awareness, and education about nutrition. Campus Nutrition is not affiliated with UBC.
+            </p>
+          </div>
+        </section>
+        <div class="sc-cIShpX hnHKIv">
+          <div class="sc-EHOje gYaqtj" size="64">
+            <h1
+              class="sc-jtRfpW cBAdir sc-hEsumM lvpnK"
+              size="44"
+              color="#191919"
+            >
+              Nutritional Transparency Initiative for Students
+            </h1>
             <div>
-        {% endif %}
+              <div class="sc-kafWEX hbnwNv">
+                <img src="{% static 'restaurants/images/salad-healthy-diet-spinach.jpg' %}" width="600" style="border-radius: 10px">
+                <div class="sc-feJyhm ikcnVI sc-bZQynM enlVCR" size="32">
+                  <div class="sc-iELTvK cYkntd sc-EHOje lddRnt" size="16">
+                    <h2
+                      class="sc-btzYZH jQLBQF sc-bMvGRv dkjDds"
+                      size="32"
+                      color="#77B7C4"
+                    >
+                      Customers
+                    </h2>
+                    <p
+                      class="sc-lhVmIH cLyyIP sc-ktHwxA dHDaJd"
+                      size="20"
+                      color="#999999"
+                      font-family="DD-TTNorms"
+                    >
+                      With your favorite restaurants at your fingertips,
+                      DoorDash satisfies your cravings and connects you with
+                      possibilities — more time and energy for yourself and
+                      those&nbsp;you&nbsp;love.
+                    </p>
+                    <div
+                      class="sc-bYSBpT llMffr sc-CtfFt eiUpeN"
+                      size="20"
+                      color="#77B7C4"
+                    >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="sc-kafWEX kxdrwC">
+                  <img src="{% static 'restaurants/images/pexels-photo.jpg' %}" width="600" style="border-radius: 10px">
+                <div class="sc-feJyhm ikcnVI sc-bZQynM enlVCR" size="32">
+                  <div class="sc-iELTvK cYkntd sc-EHOje lddRnt" size="16">
+                    <h2
+                      class="sc-btzYZH jQLBQF sc-bMvGRv iypFeX"
+                      size="32"
+                      color="#3A646E"
+                    >
+                      Dashers
+                    </h2>
+                    <p
+                      class="sc-lhVmIH cLyyIP sc-ktHwxA dHDaJd"
+                      size="20"
+                      color="#999999"
+                      font-family="DD-TTNorms"
+                    >
+                      Delivering with DoorDash, you get flexibility and
+                      financial stability. Dash for a living or for a goal, all
+                      on your schedule and on your&nbsp;own&nbsp;terms.
+                    </p>
+                    <div
+                      class="sc-bYSBpT llMffr sc-CtfFt frEeEL"
+                      size="20"
+                      color="#3A646E"
+                    >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endblock %}
+      </div>
     </div>
-</main>
-{% endblock %}
+  </div>
+</div>
