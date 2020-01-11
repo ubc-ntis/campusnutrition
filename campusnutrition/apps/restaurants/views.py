@@ -65,3 +65,6 @@ def contact(request):
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
     return render(request, 'restaurants/contact.html', {'form': form})
+
+def food(request, area):
+    return render(request, 'restaurants/food.html')

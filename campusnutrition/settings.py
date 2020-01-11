@@ -84,7 +84,7 @@ DATABASES = {
         'ENGINE':   'django.db.backends.mysql',
         'NAME':     'campusnutrition',
         'USER':     'root',       # mySQL username
-        'PASSWORD': '<password>', # mySQL password
+        'PASSWORD': 'hello123', # mySQL password
         'HOST':     'localhost',  # host name
     }
 }
