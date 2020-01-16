@@ -3,6 +3,7 @@
     height: 350px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
     overflow: hidden;
+    position: relative;
 }
 
 .image {
@@ -41,3 +42,13 @@
     padding-right: 175px;
     font-size: 1.25em;
 }
+
+.__child-anchor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: transparent;
+    user-select: none;
+  }
