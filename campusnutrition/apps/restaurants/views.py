@@ -5,6 +5,7 @@ from django.template.loader import get_template
 
 from .forms import ContactForm
 from .models import Restaurant
+from .models import Restaurant_Foods
 
 # Currently redirect to ubc area
 # TODO adjust when additional areas have 
@@ -66,5 +67,9 @@ def contact(request):
                 return HttpResponse('Invalid header found.')
     return render(request, 'restaurants/contact.html', {'form': form})
 
-def food(request, area):
-    return render(request, 'restaurants/food.html')
+def food(request, area, areaRest):
+    Restaurant_food_list = Restaurant_Foods.objects.filter(area=area)
+    context = {
+        'restaurant_food_list': Restaurant_food_list
+    }
+    return render(request, 'restaurants/food.html', context)
