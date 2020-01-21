@@ -9,29 +9,80 @@
 $(document).ready(function(){
   		$('.modal').modal();
  });
+
+ var modal = document.getElementsByClassName('modal');
+ for(var i = 0; i < modal.length; i++) {
+  var modal_id = modal[i].id;
+  $(document).ready(function(modal_id){
+  		$(modal_id).modal();
+ });
+
+ }
+
 </script>
 
 
 <main class="page">
-  
-  <div class="content">
-    <div class="card">
-      <img src="https://cdn.pixabay.com/photo/2013/07/12/16/53/burger-151421_960_720.png" alt="Burger" class="image">
-      <div class="infos">
-          <h2 class="title">Burger<span class="food_icon"></span></h2>
-          <h3 class="calorie">Calories: 500</h3>
-          <h3 class="restriction">Vegan, Lactose..</h3>
-          <p class="txt">Burger for everyone, Go eat, Go eat, Go eat, Go eat, Go eat, Go eat, Go eat, Go eat, Go eat, Go eat, Go eat</p>
-        <h3>card for quick info about food</h3>
-        <h3>click for popup of detail food info</h3>
+  <div class="restaurants-list">
+    <div class="content">
+      <div class="card">
+        <img src="https://cdn.pixabay.com/photo/2013/07/12/16/53/burger-151421_960_720.png" alt="Burger" class="image">
+        <div class="infos">
+            <h2 class="title">Burger<span class="food_icon"></span></h2>
+            <h3 class="calorie">Calories: 500</h3>
+            <h3 class="restriction">Vegan, Lactose..</h3>
+            <p class="txt">Burger for everyone, Go eat, Go eat, Go eat, Go eat, Go eat, Go eat, Go eat, Go eat, Go eat, Go eat, Go eat</p>
+          <h3>card for quick info about food</h3>
+          <h3>click for popup of detail food info</h3>
+        </div>
+        <a href="#modal1" class="modal-trigger __child-anchor"></a>
       </div>
-      <a href="#modal1" class="modal-trigger __child-anchor"></a>
+    </div>
+    <div class="content">
+      <div class="card">
+        <img src="https://cdn.pixabay.com/photo/2013/07/12/16/53/burger-151421_960_720.png" alt="Burger" class="image">
+        <div class="infos">
+            <h2 class="title">Burger<span class="food_icon"></span></h2>
+            <h3 class="calorie">Calories: 500</h3>
+            <h3 class="restriction">Vegan, Lactose..</h3>
+            <p class="txt">Burger for everyone, Go eat, Go eat, Go eat, Go eat, Go eat, Go eat, Go eat, Go eat, Go eat, Go eat, Go eat</p>
+          <h3>card for quick info about food</h3>
+          <h3>click for popup of detail food info</h3>
+        </div>
+        <a href="#modal2" class="modal-trigger __child-anchor"></a>
+      </div>
+    </div>
+    <div class="content">
+      <div class="card">
+        <img src="https://cdn.pixabay.com/photo/2013/07/12/16/53/burger-151421_960_720.png" alt="Burger" class="image">
+        <div class="infos">
+            <h2 class="title">Burger<span class="food_icon"></span></h2>
+            <h3 class="calorie">Calories: 500</h3>
+            <h3 class="restriction">Vegan, Lactose..</h3>
+            <p class="txt">Burger for everyone, Go eat, Go eat, Go eat, Go eat, Go eat, Go eat, Go eat, Go eat, Go eat, Go eat, Go eat</p>
+          <h3>card for quick info about food</h3>
+          <h3>click for popup of detail food info</h3>
+        </div>
+        <a href="#modal3" class="modal-trigger __child-anchor"></a>
+      </div>
     </div>
   </div>
 
   <div id="modal1" class="modal">
     <div class="modal-content">
-      <h4>Modal Header</h4>
+      <h4>Modal Header1</h4>
+      <p>A bunch of text</p>
+    </div>
+  </div>
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header2</h4>
+      <p>A bunch of text</p>
+    </div>
+  </div>
+  <div id="modal3" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header3</h4>
       <p>A bunch of text</p>
     </div>
   </div>
