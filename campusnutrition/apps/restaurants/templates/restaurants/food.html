@@ -40,15 +40,19 @@ $(document).ready(function(){
           <a href="#modal{{forloop.counter}}" class="modal-trigger __child-anchor"></a>
         </div>
       </div>
-
-      <div id="modal{{forloop.counter}}" class="modal">
-        <div class="modal-content">
-          <h4>Modal Header {{forloop.counter}}</h4>
-          <p>{{ food.modal_Info }}</p>
-        </div>
-      </div>
     {% endfor %}
   </div>
+  {% endif %}
+
+  {% if restaurant_food_list %}
+  {% for food in restaurant_food_list %}
+  <div id="modal{{forloop.counter}}" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header {{forloop.counter}}</h4>
+      <p>{{ food.modal_Info }}</p>
+    </div>
+  </div>
+  {% endfor %}
   {% endif %}
   
 </main>

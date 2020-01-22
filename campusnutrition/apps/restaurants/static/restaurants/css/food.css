@@ -57,3 +57,11 @@
     width: 350px !important; 
     height: 350px !important; 
 }
+.modal-open {
+    overflow-y: scroll;
+  }
+
+body {
+    /* prevent  crollbar dissapearing when modal appears*/
+    overflow: auto !important;
+}
