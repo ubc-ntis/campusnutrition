@@ -67,8 +67,8 @@ def contact(request):
                 return HttpResponse('Invalid header found.')
     return render(request, 'restaurants/contact.html', {'form': form})
 
-def food(request, area, areaRest):
-    Restaurant_food_list = Restaurant_Foods.objects.filter(area=area)
+def food(request, area, name):
+    Restaurant_food_list = Restaurant_Foods.objects.filter(area=area).filter(name=name)
     context = {
         'restaurant_food_list': Restaurant_food_list
     }
