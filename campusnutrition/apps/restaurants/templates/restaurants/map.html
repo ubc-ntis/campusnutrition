@@ -17,11 +17,28 @@
       center: { lat: -34.397, lng: 150.644 },
       zoom: 8
     });
+
+    var script = document.createElement('script');
+    // testing
+    script.src = 'https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js';
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  // eqfeed_callback from the website, switch implementation upon deciding the way we store location
+  window.eqfeed_callback = function(response) {
+    for (var i in results.features) {
+      var coords = results.features[i].geometry.coordinates;
+      var latLng = new google.maps.LatLng(coords[1],coords[0]);
+      var marker = new google.maps.Marker({
+        position: latLng,
+        map: map
+      });
+    }
   }
 </script>
 <script
-  src="https://maps.googleapis.com/maps/api/js?key=<API_KEY>=initMap"
   async
   defer
+  src="https://maps.googleapis.com/maps/api/js?key=<API_KEY>=initMap"
 ></script>
 {% endblock content %}
