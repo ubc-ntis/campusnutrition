@@ -29,6 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
+    '*'
 ]
 
 
@@ -82,10 +83,11 @@ WSGI_APPLICATION = 'campusnutrition.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE':   'django.db.backends.mysql',
-        'NAME':     'campusnutrition',
-        'USER':     'root',       # mySQL username
-        'PASSWORD': 'hello123', # mySQL password
-        'HOST':     'localhost',  # host name
+
+        'NAME':     'heroku_80f619d21b354c1',
+        'USER':     'bdfeef3462c04c',       # mySQL username
+        'PASSWORD': '0e902aad', # mySQL password
+        'HOST':     'us-cdbr-iron-east-05.cleardb.net',  # host name
     }
 }
 
