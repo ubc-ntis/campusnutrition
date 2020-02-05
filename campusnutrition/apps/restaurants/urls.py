@@ -8,4 +8,5 @@ urlpatterns = [
     path('contact/',        views.contact, name='contact'),
     path('<str:area>/map/', views.map,     name='map'),
     path('<str:area>/',     views.home,    name='home'),
+    path('<str:area>/<str:name>/', views.food,    name='food'),
 ]

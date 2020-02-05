@@ -83,6 +83,7 @@ WSGI_APPLICATION = 'campusnutrition.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE':   'django.db.backends.mysql',
+
         'NAME':     'heroku_80f619d21b354c1',
         'USER':     'bdfeef3462c04c',       # mySQL username
         'PASSWORD': '0e902aad', # mySQL password
