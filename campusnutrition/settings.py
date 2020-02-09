@@ -144,3 +144,6 @@ EMAIL_USE_TLS       = True
 EMAIL_PORT          = 587
 
 GOOGLE_MAPS_API_KEY = "<google_maps_api_key>"
+
+MAILCHIMP_API_KEY = "<mailchimp_api_key>"
+MAILCHIMP_SUBSCRIBE_LIST_ID = "<mailchimp_subscribe_list_id>"
