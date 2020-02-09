@@ -1,0 +1,60 @@
+{% extends 'restaurants/base.html' %} {% load static %} {% block content %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'restaurants/css/food.css' %}"
+/>
+
+<script>
+$(document).ready(function(){
+  		$('.modal').modal();
+ });
+
+ var modal = document.getElementsByClassName('modal');
+ for(var i = 0; i < modal.length; i++) {
+  var modal_id = modal[i].id;
+  $(document).ready(function(modal_id){
+  		$(modal_id).modal();
+ });
+
+ }
+
+</script>
+
+
+<main class="page">
+  {% if restaurant_food_list %}
+  <div class="restaurants-list">
+    {% for food in restaurant_food_list %}
+      <div class="content">
+        <div class="card">
+          <img src="https://cdn.pixabay.com/photo/2013/07/12/16/53/burger-151421_960_720.png" alt="Burger" class="image">
+          <div class="infos">
+              <h2 class="title">{{ food.food }}<span class="food_icon"></span></h2>
+              <h3 class="calorie">Calories: {{ food.calories }}</h3>
+              <h3 class="restriction">{{ food.category }}</h3>
+              <p class="txt">{{ food.info2 }}</p>
+            <h3>{{ food.info2 }}</h3>
+            <h3>click for popup of detail food info</h3>
+          </div>
+          <a href="#modal{{forloop.counter}}" class="modal-trigger __child-anchor"></a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if restaurant_food_list %}
+  {% for food in restaurant_food_list %}
+  <div id="modal{{forloop.counter}}" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header {{forloop.counter}}</h4>
+      <p>{{ food.modal_Info }}</p>
+    </div>
+  </div>
+  {% endfor %}
+  {% endif %}
+  
+</main>
+
+{% endblock content %}

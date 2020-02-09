@@ -4,7 +4,7 @@ from django.http import HttpResponse, JsonResponse
 from django.template.loader import get_template
 
 from .forms  import ContactForm
-from .models import Restaurant, Subscribe
+from .models import Restaurant, Subscribe, Restaurant_Foods
 from .utils  import SendSubscribeMail
 
 # Currently redirect to ubc area
@@ -83,3 +83,10 @@ def subscribe(request):
             SendSubscribeMail(email)
 
     return HttpResponse("/")
+
+def food(request, area, name):
+    Restaurant_food_list = Restaurant_Foods.objects.filter(area=area).filter(name=name)
+    context = {
+        'restaurant_food_list': Restaurant_food_list
+    }
+    return render(request, 'restaurants/food.html', context)
