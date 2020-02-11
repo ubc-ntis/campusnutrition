@@ -27,8 +27,6 @@ SECRET_KEY = 'v%cni)^lez5k8l@w(g@7b5kxz+eqj&woi@rt73dnkn=-^e^+0t'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '127.0.0.1',
-    'localhost',
     '*'
 ]
 
@@ -76,14 +74,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'campusnutrition.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE':   'django.db.backends.mysql',
-
         'NAME':     'heroku_80f619d21b354c1',
         'USER':     'bdfeef3462c04c',       # mySQL username
         'PASSWORD': '0e902aad', # mySQL password
