@@ -80,10 +80,10 @@ WSGI_APPLICATION = 'campusnutrition.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE':   'django.db.backends.mysql',
-        'NAME':     'heroku_80f619d21b354c1',
-        'USER':     'bdfeef3462c04c',       # mySQL username
-        'PASSWORD': '0e902aad', # mySQL password
-        'HOST':     'us-cdbr-iron-east-05.cleardb.net',  # host name
+        'NAME':     os.environ["DB_NAME"],
+        'USER':     os.environ["DB_USER"],     # mySQL username
+        'PASSWORD': os.environ["DB_PASSWORD"], # mySQL password
+        'HOST':     os.environ["DB_HOST"],     # host name
     }
 }
 
@@ -140,7 +140,7 @@ EMAIL_HOST_PASSWORD = '<email_host_password'
 EMAIL_USE_TLS       = True
 EMAIL_PORT          = 587
 
-GOOGLE_MAPS_API_KEY = "<google_maps_api_key>"
+GOOGLE_MAPS_API_KEY = os.environ["GOOGLE_MAPS_API_KEY"]
 
-MAILCHIMP_API_KEY = "<mailchimp_api_key>"
-MAILCHIMP_SUBSCRIBE_LIST_ID = "<mailchimp_subscribe_list_id>"
+MAILCHIMP_API_KEY           = os.environ["MAILCHIMP_API_KEY"]
+MAILCHIMP_SUBSCRIBE_LIST_ID = os.environ["MAILCHIMP_SUBSCRIBE_LIST_ID"]
