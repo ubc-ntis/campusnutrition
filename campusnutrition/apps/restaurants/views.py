@@ -1,11 +1,11 @@
 from django.core.mail import send_mail, BadHeaderError, EmailMessage
 from django.shortcuts import get_object_or_404, render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.template.loader import get_template
 
-from .forms import ContactForm
-from .models import Restaurant
-from .models import Restaurant_Foods
+from .forms  import ContactForm
+from .models import Restaurant, Subscribe, Restaurant_Foods
+from .utils  import SendSubscribeMail
 
 # Currently redirect to ubc area
 # TODO adjust when additional areas have 
@@ -66,6 +66,23 @@ def contact(request):
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
     return render(request, 'restaurants/contact.html', {'form': form})
+
+# Subscribe view
+def subscribe(request):
+    if request.method == "POST":
+        email = request.POST["email_id"]
+        email_obj_list = Subscribe.objects.filter(email_id = email)
+
+        if email_obj_list.exists():
+            data = {"status": "404"}
+            return JsonResponse(data)
+        else:
+            Subscribe.objects.create(email_id = email)
+
+            # Send the mail
+            SendSubscribeMail(email)
+
+    return HttpResponse("/")
 
 def food(request, area, name):
     Restaurant_food_list = Restaurant_Foods.objects.filter(area=area).filter(name=name)
