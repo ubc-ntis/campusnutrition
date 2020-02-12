@@ -20,5 +20,13 @@ class Restaurant(models.Model):
     # req: abide by the national postal service of the country concerned
     address  = models.CharField(max_length=256)
 
+    # Latitude of the restaurant
+    # req: valid within -90 and +90, up to 6 decimal places
+    lat      = models.DecimalField(max_digits=8, decimal_places=6)
+
+    # Longitude of the restaurant
+    # req: valid within -180 and +180, up to 6 decimal places
+    lng      = models.DecimalField(max_digits=9, decimal_places=6)
+
     def __str__(self):
         return self.name

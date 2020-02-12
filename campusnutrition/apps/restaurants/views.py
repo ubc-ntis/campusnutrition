@@ -1,10 +1,11 @@
 from django.core.mail import send_mail, BadHeaderError, EmailMessage
 from django.shortcuts import get_object_or_404, render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.template.loader import get_template
 
 from .forms import ContactForm
 from .models import Restaurant
+from .utils import getGeoJSON
 
 # Currently redirect to ubc area
 # TODO adjust when additional areas have 
