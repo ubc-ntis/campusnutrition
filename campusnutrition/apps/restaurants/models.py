@@ -20,17 +20,6 @@ class Restaurant(models.Model):
     def __str__(self):
         return self.name
 
-# Subscribe model
-class Subscribe(models.Model):
-    # Email address
-    email_id  = models.EmailField(null = True, blank = True)
-
-    # Time of addition
-    timestamp = models.DateTimeField(default=timezone.now)
-
-    def __str__(self):
-        return self.email_id
-
 class Restaurant_Foods(models.Model):
     # Area restaurants correspond too
     area      = models.CharField(max_length=256)

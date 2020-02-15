@@ -4,12 +4,10 @@ from django.http import HttpResponse, JsonResponse
 from django.template.loader import get_template
 
 from .forms  import ContactForm
-from .models import Restaurant, Subscribe, Restaurant_Foods
+from .models import Restaurant, Restaurant_Foods
 from .utils  import SendSubscribeMail
 
 # Currently redirect to ubc area
-# TODO adjust when additional areas have 
-# been added
 def redirect_view(request):
     response = redirect("/ubc/")
     return response
@@ -71,18 +69,21 @@ def contact(request):
 def subscribe(request):
     if request.method == "POST":
         email = request.POST["email_id"]
-        email_obj_list = Subscribe.objects.filter(email_id = email)
 
-        if email_obj_list.exists():
+        send_sub_mail = SendSubscribeMail(email)
+
+        # Send the email
+        # Status is True when subscription is successful,
+        # False when unsuccessful (email already added to Mailchimp)
+        status = send_sub_mail.run()
+
+        if status:
+            # Subscription successful 
+            return HttpResponse("/")
+        else:
+            # Subscription failed
             data = {"status": "404"}
             return JsonResponse(data)
-        else:
-            Subscribe.objects.create(email_id = email)
-
-            # Send the mail
-            SendSubscribeMail(email)
-
-    return HttpResponse("/")
 
 def food(request, area, name):
     Restaurant_food_list = Restaurant_Foods.objects.filter(area=area).filter(name=name)
