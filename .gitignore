@@ -2,3 +2,7 @@ env
 **/*.pyc
 **/migrations
 db.sqlite3
+
+# Prevent local environment changes 
+# from being staged
+env.sh
