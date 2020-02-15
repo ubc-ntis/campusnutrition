@@ -6,9 +6,6 @@ class SendSubscribeMail(object):
 
     def __init__(self, email):
         self.email = email
-        thread = threading.Thread(target=self.run, args=())
-        thread.daemon = True
-        thread.start()
 
     def run(self):
         API_KEY = settings.MAILCHIMP_API_KEY
@@ -19,5 +16,6 @@ class SendSubscribeMail(object):
         try:
             api.lists.subscribe(LIST_ID, {"email": self.email}, 
                                 double_optin = False)
+            return True
         except:
             return False
