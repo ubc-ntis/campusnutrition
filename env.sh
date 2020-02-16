@@ -18,3 +18,6 @@ export MAILCHIMP_SUBSCRIBE_LIST_ID="<mailchimp_subscribe_list_id>"
 
 # Google maps settings
 export GOOGLE_MAPS_API_KEY="<google_maps_api_key>"
+
+# Formspree URL
+export FORMSPREE_URL="<formspree_url>"
