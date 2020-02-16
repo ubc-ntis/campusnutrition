@@ -18,3 +18,12 @@ export MAILCHIMP_SUBSCRIBE_LIST_ID="<mailchimp_subscribe_list_id>"
 
 # Google maps settings
 export GOOGLE_MAPS_API_KEY="<google_maps_api_key>"
+
+# Formspree URL
+export FORMSPREE_URL="<formspree_url>"
+
+# Sendgrid API key
+export SENDGRID_API_KEY="<sendgrid_api_key>"
+
+# Contact email address, used for contact form submission
+export CONTACT_EMAIL_ADDRESS="<contact_email_address>"

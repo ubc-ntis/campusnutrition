@@ -129,14 +129,14 @@ STATIC_URL  = '/static/'
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
+SENDGRID_API_KEY = os.environ["SENDGRID_API_KEY"]
 
-# Use email console backend for development
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+CONTACT_EMAIL_ADDRESS = os.environ["CONTACT_EMAIL_ADDRESS"]
 
 # EMAIL settings
-EMAIL_HOST          = '<email_host>'
-EMAIL_HOST_USER     = '<email_host_user>'
-EMAIL_HOST_PASSWORD = '<email_host_password'
+EMAIL_HOST          = 'smtp.sendgrid.net'
+EMAIL_HOST_USER     = 'apikey'
+EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
 EMAIL_USE_TLS       = True
 EMAIL_PORT          = 587
 
