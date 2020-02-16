@@ -26,4 +26,4 @@ export FORMSPREE_URL="<formspree_url>"
 export SENDGRID_API_KEY="<sendgrid_api_key>"
 
 # Contact email address, used for contact form submission
-export CONTACT_EMAIL_ADDRESS="<contact_email_address"
+export CONTACT_EMAIL_ADDRESS="<contact_email_address>"
