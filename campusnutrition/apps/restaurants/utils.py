@@ -34,14 +34,16 @@ def send_contact_email(subject, message, template_file, from_email, to_email_lis
 
     content = template.render(context_campus)
 
+    display_name = "%s <%s>" % (settings.CONTACT_DISPLAY_NAME, from_email)
+
     try:
 
         email = EmailMessage(
             subject,
             content,
-            from_email,
+            display_name,
             to_email_list,
-            headers
+            headers = headers
         )
 
         email.send()

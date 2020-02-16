@@ -132,6 +132,7 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 SENDGRID_API_KEY = os.environ["SENDGRID_API_KEY"]
 
 CONTACT_EMAIL_ADDRESS = os.environ["CONTACT_EMAIL_ADDRESS"]
+CONTACT_DISPLAY_NAME  = os.environ["CONTACT_DISPLAY_NAME"]
 
 # EMAIL settings
 EMAIL_HOST          = 'smtp.sendgrid.net'

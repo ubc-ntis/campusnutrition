@@ -52,7 +52,7 @@ def contact(request):
                                         "restaurants/contact_campus.txt",
                                         settings.CONTACT_EMAIL_ADDRESS,
                                         [settings.CONTACT_EMAIL_ADDRESS],
-                                        headers={
+                                        headers = {
                                             "Reply-To": from_email
                                         })
 
