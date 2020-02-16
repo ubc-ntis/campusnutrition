@@ -2,10 +2,11 @@ from django.core.mail import send_mail, BadHeaderError, EmailMessage
 from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponse, JsonResponse
 from django.template.loader import get_template
+from django.conf import settings
 
 from .forms  import ContactForm
 from .models import Restaurant, Restaurant_Foods
-from .utils  import SendSubscribeMail
+from .utils  import SendSubscribeMail, send_contact_email
 
 # Currently redirect to ubc area
 def redirect_view(request):
@@ -35,34 +36,35 @@ def contact(request):
         form = ContactForm()
     else:
         form = ContactForm(request.POST)
+
         if form.is_valid():
-            name       = form.cleaned_data['name']
-            from_email = form.cleaned_data['from_email']
-            subject    = form.cleaned_data['subject']
-            message    = form.cleaned_data['message']
 
-            # Body of email message template
-            template = get_template('restaurants/contact_template.txt')
-            context = {
-                'contact_email': from_email,
-                'form_content': message
-            }
-            content = template.render(context)
+            name          = form.cleaned_data['name']
+            from_email    = form.cleaned_data['from_email']
+            subject       = form.cleaned_data['subject']
+            message       = form.cleaned_data['message']
 
-            subject_email = "%s - %s" % (name, subject)
+            subject_email_campus  = "Contact Form Submission: %s - %s" % (name, subject)
+            subject_email_confirm = "Thank you for your submission"
 
-            try:
-                # TODO check for possible header injection?
-                email = EmailMessage(
-                    subject_email,
-                    content,
-                    'campus.nutrition.ubc@gmail.com',
-                    ['campus.nutrition.ubc@gmail.com'],
-                    headers = {'Reply-To': from_email},
-                )
-                email.send()
-            except BadHeaderError:
-                return HttpResponse('Invalid header found.')
+            status = send_contact_email(subject_email_campus,
+                                        message,
+                                        "restaurants/contact_campus.txt",
+                                        settings.CONTACT_EMAIL_ADDRESS,
+                                        [settings.CONTACT_EMAIL_ADDRESS],
+                                        headers={
+                                            "Reply-To": from_email
+                                        })
+
+            status &= send_contact_email(subject_email_confirm,
+                                         message,
+                                         "restaurants/contact_confirm.txt",
+                                         settings.CONTACT_EMAIL_ADDRESS,
+                                         [from_email])
+
+            if status == False:
+                return HttpResponse("Invalid header found")
+
     return render(request, 'restaurants/contact.html', {'form': form})
 
 # Subscribe view
