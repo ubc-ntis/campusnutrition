@@ -30,3 +30,6 @@ export CONTACT_EMAIL_ADDRESS="<contact_email_address>"
 
 # Contact email display name, used for contact form submissions
 export CONTACT_DISPLAY_NAME="<contact_display_name>"
+
+# Google analytics tracking id
+export TRACKING_ID="<tracking_id>"
