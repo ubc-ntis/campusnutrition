@@ -1,12 +1,12 @@
 from django.core.mail import send_mail, BadHeaderError, EmailMessage
-from django.shortcuts import get_object_or_404, render, redirect
+from django.shortcuts import get_object_or_404, redirect
 from django.http import HttpResponse, JsonResponse
 from django.template.loader import get_template
 from django.conf import settings
 
 from .forms  import ContactForm
 from .models import Restaurant, Restaurant_Foods
-from .utils  import SendSubscribeMail, send_contact_email
+from .utils  import SendSubscribeMail, send_contact_email, util_render
 
 # Currently redirect to ubc area
 def redirect_view(request):
@@ -19,14 +19,14 @@ def home(request, area):
     context = {
         'restaurant_list': restaurant_list
     }
-    return render(request, 'restaurants/home.html', context)
+    return util_render(request, 'restaurants/home.html', context)
 
 def map(request, area):
-    return render(request, 'restaurants/map.html')
+    return util_render(request, 'restaurants/map.html')
 
 # Render about view
 def about(request):
-    return render(request, 'restaurants/about.html')
+    return util_render(request, 'restaurants/about.html')
 
 # Contact view
 # Render template if provided through GET request
@@ -65,7 +65,7 @@ def contact(request):
             if status == False:
                 return HttpResponse("Invalid header found")
 
-    return render(request, 'restaurants/contact.html', {'form': form})
+    return util_render(request, 'restaurants/contact.html', {'form': form})
 
 # Subscribe view
 def subscribe(request):
@@ -92,4 +92,4 @@ def food(request, area, name):
     context = {
         'restaurant_food_list': Restaurant_food_list
     }
-    return render(request, 'restaurants/food.html', context)
+    return util_render(request, 'restaurants/food.html', context)
