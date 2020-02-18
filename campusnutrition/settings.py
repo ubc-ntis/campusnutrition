@@ -145,3 +145,6 @@ GOOGLE_MAPS_API_KEY = os.environ["GOOGLE_MAPS_API_KEY"]
 
 MAILCHIMP_API_KEY           = os.environ["MAILCHIMP_API_KEY"]
 MAILCHIMP_SUBSCRIBE_LIST_ID = os.environ["MAILCHIMP_SUBSCRIBE_LIST_ID"]
+
+# Google analytics tracking id
+TRACKING_ID = os.environ["TRACKING_ID"]
