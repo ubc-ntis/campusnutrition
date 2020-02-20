@@ -9,7 +9,7 @@
 <div class="feedback-header-container">
   <div class="feedback-header-title">CONTACT US</div>
   <div class="additional-contact-info">
-    We’d love to hear from you! Questions? Comments? Suggestions?
+    Questions? Suggestions? Interested in getting involved? We’d love to hear from you! Please fill out the form to contact us and we’ll respond to you shortly.
   </div>
 </div>
 
@@ -18,7 +18,7 @@
     src="{% static 'restaurants/images/contact_us.jpeg' %}"
     alt="Campus Nutrition logo"
   />
-  <form method="post" class="feedback-form">
+  <form method="post" class="feedback-form" action="/contact/">
     {% csrf_token %}
     {{ form.ad_p }}
     <div class="input-container">

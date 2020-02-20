@@ -1,0 +1,67 @@
+.card {
+    width: 350px;
+    height: 350px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+    overflow: hidden;
+    position: relative;
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+.infos {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    overflow: hidden;
+    width: 100%;
+    height: 100px;
+    transition: .5s ease;
+}
+
+.card:hover .infos {
+    height: 100%;
+}
+
+.card .infos .calorie, .card .infos .restriction {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    color: rgba(21, 37, 54, .7);
+    font-family: 'Grotesque', sans-serif;
+  }
+
+.main {
+    height: 100vh;
+    text-align: justify;
+    padding-right: 175px;
+    font-size: 1.25em;
+}
+
+.__child-anchor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: transparent;
+    user-select: none;
+  }
+
+.modal { 
+    width: 350px !important; 
+    height: 350px !important; 
+}
+.modal-open {
+    overflow-y: scroll;
+  }
+
+body {
+    /* prevent  crollbar dissapearing when modal appears*/
+    overflow: auto !important;
+}

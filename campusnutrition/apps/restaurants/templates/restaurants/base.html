@@ -3,6 +3,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ tracking_id }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', "{{ tracking_id }}");
+    </script>
+      
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, inital-scale=1.0" />
 
@@ -34,6 +44,9 @@
       href="{% static 'restaurants/images/favicon.ico' %}"
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    <script src="{% static 'restaurants/js/subscribe.js' %}"></script>
 
     <title>{% block title %}{% endblock %}</title>
 
@@ -82,11 +95,11 @@
               <h6>About</h6>
               <p class="text-justify">
                 Campus Nutrition is an independent non-profit organization
-                committed to improving campus health and students’ diets. Its
-                aim is to address and minimize current barriers that prevent
-                people from consuming a healthy diet through advocacy,
-                awareness, and education about nutrition. Campus Nutrition is
-                not affiliated with UBC.
+                commited to increasing awareness about nutrition and the food
+                options that are available on campus. It aims to address and
+                minimize current barriers that prevent students and other
+                members of campus communties from consuming a healthy diet.
+                Campus Nutrition was founded in 2019 by a group of UBC students.
               </p>
             </div>
 
@@ -95,9 +108,7 @@
               <ul class="footer-links">
                 <li><a href="/about">About Us</a></li>
                 <li>
-                  <a href="/why"
-                    >Why Campus Nutrition</a
-                  >
+                  <a href="/why">Why Campus Nutrition</a>
                 </li>
                 <li><a href="/contact">Contact Us</a></li>
               </ul>
@@ -113,15 +124,28 @@
                 <div class="success-message" style="display: none">
                   Success!
                 </div>
-                <form class="footer-input-form">
+                <form
+                  class="footer-input-form"
+                  id="subscribe"
+                  form
+                  method="POST"
+                >
+                  {% csrf_token %}
                   <div class="footer-email-input-container">
                     <input
                       class="footer-email-input"
                       placeholder="Enter your email address"
+                      id="email_id"
+                      name="email_id"
                       type="email"
                       required
                     />
-                    <button class="footer-email-submit" type="submit">
+                    <button
+                      class="footer-email-submit"
+                      type="submit"
+                      value="Subscribe"
+                      id="email_submit"
+                    >
                       <i class="material-icons icon-white">arrow_right_alt</i>
                     </button>
                   </div>
@@ -167,5 +191,62 @@
   $(".footer-input-form").submit(function() {
     $(".success-message").show();
     return false;
+  });
+
+  $("#subscribe").submit(function(e) {
+    e.preventDefault();
+    var email_id = $("#email_id").val();
+    if (email_id) {
+      var csrfmiddlewaretoken = csrftoken;
+      var email_data = {
+        email_id: email_id,
+        csrfmiddlewaretoken: csrfmiddlewaretoken
+      };
+      $.ajax({
+        type: "POST",
+        url: "/subscribe/",
+        data: email_data,
+        success: function(response) {
+          $("#email_id").val("");
+          if (response.status == "404") {
+            alert("This Email is already been subscribed!");
+          }
+        },
+        error: function(response) {
+          alert("Sorry Something went Wrong");
+          $("#email_id").val("");
+        }
+      });
+      return false;
+    } else {
+      alert("Please provide correct email!");
+    }
+  });
+
+  function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== "") {
+      var cookies = document.cookie.split(";");
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = jQuery.trim(cookies[i]);
+        if (cookie.substring(0, name.length + 1) === name + "=") {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+  var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+
+  function csrfSafeMethod(method) {
+    return /^(GET|HEAD|OPTIONS|TRACE)$/.test(method);
+  }
+  $.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+      if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+      }
+    }
   });
 </script>

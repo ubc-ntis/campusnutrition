@@ -4,3 +4,7 @@ env
 db.sqlite3
 campusenv/
 .vscode/
+
+# Prevent local environment changes 
+# from being staged
+env.sh
