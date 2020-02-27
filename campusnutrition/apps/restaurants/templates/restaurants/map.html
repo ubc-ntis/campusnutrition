@@ -21,7 +21,6 @@
         center: new google.maps.LatLng(49.2606,-123.2460),
         mapTypeId: 'roadmap'
       });
-      console.log('map')
 
       let markers = [];
 
@@ -32,8 +31,12 @@
               position: new google.maps.LatLng(value['lat'], value['lng']),
               map: map
             });
+
+          var infowindow = new google.maps.InfoWindow({
+            content: value['address']
+          });
           marker.addListener('click', function() {
-            // open infowindow
+            infowindow.open(map, marker);
           });
           markers.push(marker);
         });

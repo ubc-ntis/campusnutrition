@@ -72,6 +72,6 @@ def util_render(request, path, context={}):
   # Get JSON of lat and lon
 # TODO add more details later
 def getGeoJSON(request, area):
-    response = Restaurant.objects.filter(area=area).values('lat','lng')
+    response = Restaurant.objects.filter(area=area).values('lat','lng', 'address')
     print(response)
     return JsonResponse(list(response), safe=False)
