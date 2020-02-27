@@ -17,21 +17,25 @@
     var map;
     function initMap() {
       map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 2,
-        center: new google.maps.LatLng(2.8,-187.3),
-        mapTypeId: 'terrain'
+        zoom: 15,
+        center: new google.maps.LatLng(49.2606,-123.2460),
+        mapTypeId: 'roadmap'
       });
+      console.log('map')
 
       let markers = [];
 
       $.getJSON("/ubc/map/getJSON", function(data) {
+        console.log('getjson')
         $.each(data, function(index, value) {
-          markers.push(
-            new google.maps.Marker({
+          var marker = new google.maps.Marker({
               position: new google.maps.LatLng(value['lat'], value['lng']),
               map: map
-            })
-          );
+            });
+          marker.addListener('click', function() {
+            // open infowindow
+          });
+          markers.push(marker);
         });
       });
     }
