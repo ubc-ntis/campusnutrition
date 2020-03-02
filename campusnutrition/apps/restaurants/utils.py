@@ -1,5 +1,6 @@
 import threading
 import mailchimp
+from django.shortcuts import render
 from django.template.loader import get_template
 from django.core.mail import EmailMessage
 from django.conf import settings
@@ -53,3 +54,14 @@ def send_contact_email(subject, message, template_file, from_email, to_email_lis
     except:
 
         return False
+
+
+def util_render(request, path, context={}):
+
+    # Add context variables common to all views
+    context = {
+        **context,
+        "tracking_id": settings.TRACKING_ID
+    }
+
+    return render(request, path, context)
