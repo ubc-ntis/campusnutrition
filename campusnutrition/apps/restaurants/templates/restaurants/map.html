@@ -22,6 +22,7 @@
         mapTypeId: 'roadmap'
       });
 
+      var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
       let markers = [];
 
       $.getJSON("/ubc/map/getJSON", function(data) {
@@ -29,7 +30,7 @@
         $.each(data, function(index, value) {
           var marker = new google.maps.Marker({
               position: new google.maps.LatLng(value['lat'], value['lng']),
-              map: map
+              label: labels[index % labels.length]
             });
 
           var infowindow = new google.maps.InfoWindow({
@@ -40,8 +41,13 @@
           });
           markers.push(marker);
         });
+        console.log("pushed markers")
+      var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
       });
     }
+  </script>
+  <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
   </script>
   <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZczE3AoOQTbqeYBt9sfJWdmGpaOsSVkk&callback=initMap">
