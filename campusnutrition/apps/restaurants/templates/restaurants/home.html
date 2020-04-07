@@ -37,9 +37,13 @@
                 <i class="material-icons">refresh</i>
             </div>
         </div>
+        <form method="get">
+            {{ restaurant_list.form }}
+            <button type="submit">Search</button>
+          </form>
         {% if restaurant_list %}
             <div class="restaurants-list">
-                {% for restaurant in restaurant_list %}
+                {% for restaurant in restaurant_list.qs %}
                     <div class="restaurant-card">
                         <div class="restaurant-card-img-container">
                             <img

@@ -8,6 +8,7 @@ from .utils import getGeoJSON
 from .forms  import ContactForm
 from .models import Restaurant, Restaurant_Foods
 from .utils  import SendSubscribeMail, send_contact_email, util_render
+from .filters import RestaurantFilter
 
 # Currently redirect to ubc area
 def redirect_view(request):
@@ -17,8 +18,9 @@ def redirect_view(request):
 # Home view for the given area
 def home(request, area):
     restaurant_list = Restaurant.objects.filter(area=area)
+    restaurant_list_filter = RestaurantFilter(request.GET, queryset=restaurant_list) 
     context = {
-        'restaurant_list': restaurant_list
+        'restaurant_list': restaurant_list_filter
     }
     return util_render(request, 'restaurants/home.html', context)
 
