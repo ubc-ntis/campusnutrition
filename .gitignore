@@ -8,3 +8,7 @@ campusenv/
 # Prevent local environment changes 
 # from being staged
 env.sh
+lib/
+bin/
+share/
+include/
