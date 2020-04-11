@@ -16,7 +16,27 @@
 
 {% block content %}
 
+{% url 'get_names' %}
+{% url 'get_categories' %}
+{% url 'listing' %}
+
+
+<div id="list-data" url="{% url 'listing'%}">list data</div>
+<div id="no-result">
+    <h1>No results found</h1>
+</div>
+
 <main class="page">
+    
+    <br>
+    <label for="name2">Choose a name:</label>
+    <select id="name" url = "{%url 'get_names' %}" style="display: block;">
+    </select>
+
+    <label for="category">Country</label>
+    <select id="category" url = "{%url 'get_categories' %}" style="display: block;">
+    </select>
+
     <div class="content">
         <div class="search-container">
             <div class="search-icon-container">
@@ -57,5 +77,6 @@
             <div>
         {% endif %}
     </div>
+    <script src="{% static 'restaurants/js/filter.js' %}" type="text/javascript"></script>
 </main>
 {% endblock %}

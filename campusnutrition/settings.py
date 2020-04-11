@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'campusnutrition.apps.restaurants',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -80,10 +81,10 @@ WSGI_APPLICATION = 'campusnutrition.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE':   'django.db.backends.mysql',
-        'NAME':     os.environ["DB_NAME"],
-        'USER':     os.environ["DB_USER"],     # mySQL username
-        'PASSWORD': os.environ["DB_PASSWORD"], # mySQL password
-        'HOST':     os.environ["DB_HOST"],     # host name
+        'NAME':     'campusnutrition',
+        'USER':     'root',     # mySQL username
+        'PASSWORD': '0117Money@', # mySQL password
+        'HOST':     'localhost',     # host name
     }
 }
 

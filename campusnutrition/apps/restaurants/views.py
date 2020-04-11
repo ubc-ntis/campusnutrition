@@ -4,10 +4,14 @@ from django.http import HttpResponse, JsonResponse
 from django.template.loader import get_template
 from django.conf import settings
 
+from rest_framework.generics import ListAPIView
+
 from .utils import getGeoJSON
 from .forms  import ContactForm
 from .models import Restaurant, Restaurant_Foods
 from .utils  import SendSubscribeMail, send_contact_email, util_render
+from .serializers import restaurantSerializers
+from .pagination import StandardResultsSetPagination
 
 # Currently redirect to ubc area
 def redirect_view(request):
@@ -21,6 +25,42 @@ def home(request, area):
         'restaurant_list': restaurant_list
     }
     return util_render(request, 'restaurants/home.html', context)
+
+class RestaurantList(ListAPIView):
+        pagination_class = StandardResultsSetPagination
+        serializer_class = restaurantSerializers
+
+        def get_queryset(self):
+            queryList = Restaurant.objects.all()
+            name = self.request.query_params.get('name', None)
+            category = self.request.query_params.get('category', None)
+
+            if name:
+                queryList = queryList.filter(name = name)
+            if category:
+                queryList = queryList.filter(category = category)
+            
+            return queryList
+
+def getname(request):
+    if request.method == "GET" and request.is_ajax():
+        name = Restaurant.objects.exclude(name__isnull=True).\
+            exclude(name__exact='').order_by('name').values_list('name').distinct()
+        name = [i[0] for i in list(name)]
+        data = {
+            "name": name, 
+        }
+        return JsonResponse(data, status = 200)
+
+def getcategory(request):
+    if request.method == "GET" and request.is_ajax():
+        category = Restaurant.objects.exclude(category__isnull=True).\
+            exclude(category__exact='').order_by('category').values_list('category').distinct()
+        category = [i[0] for i in list(category)]
+        data = {
+            "category": category, 
+        }
+        return JsonResponse(data, status = 200)
 
 def map(request, area):
     return util_render(request, 'restaurants/map.html')
