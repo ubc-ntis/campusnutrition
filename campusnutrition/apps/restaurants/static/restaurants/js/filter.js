@@ -50,6 +50,8 @@ function putFood(result) {
         
             $("#rest-list").append(foodCard);
         });
+    } else {
+        $("#rest-list").html("NO Results");
     }
 }
 
