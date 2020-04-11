@@ -33,6 +33,26 @@ $(document).ready(function() {
     });
 });
 
+function putFood(result) {
+    let foodCard;
+
+    if(result.length > 0) {
+        $("#rest-list").html("");
+
+        $.each(result, function(key, value) {
+            foodCard = '<div class="restaurant-card"> <div class="restaurant-card-img-container"> <img src="'
+                     + '/static/restaurants/images/stores/' + value.img + '"' 
+                     + 'alt="' + value.name + '"'
+                     + 'class="restaurant-card-img" /> </div>'
+                     + '<h2 class="restaurant-card-title">' + value.name + '</h2>'
+                     + '<div class="restaurant-card-categories">' + value.category + '</div>' 
+                     + '</div>';
+        
+            $("#rest-list").append(foodCard);
+        });
+    }
+}
+
 function getData() {
     let url = $('#list-data').attr("url");
     $.ajax({
@@ -44,6 +64,7 @@ function getData() {
         },
         success: function (result) {
             console.log(result)
+            putFood(result)
         },
         error: function (response) {
             $("#no-results h5").html("Something went wrong");
