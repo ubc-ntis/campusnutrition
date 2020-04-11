@@ -19,6 +19,18 @@ $(document).ready(function() {
 
         getData();
     });
+
+    $("#category").on('change', function() {
+        if(this.value == "all") {
+            data_search['category'] = "";
+            console.log(data_search['category']);
+        } else {
+            data_search['category'] = this.value;
+            console.log(data_search['category']);
+        }
+
+        getData();
+    });
 });
 
 function getData() {

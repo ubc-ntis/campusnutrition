@@ -27,18 +27,18 @@ def home(request, area):
     return util_render(request, 'restaurants/home.html', context)
 
 class RestaurantList(ListAPIView):
-        pagination_class = StandardResultsSetPagination
         serializer_class = restaurantSerializers
 
         def get_queryset(self):
             queryList = Restaurant.objects.all()
+            
             name = self.request.query_params.get('name', None)
             category = self.request.query_params.get('category', None)
 
             if name:
-                queryList = queryList.filter(name = name)
+                queryList = queryList.filter(name = str(name))
             if category:
-                queryList = queryList.filter(category = category)
+                queryList = queryList.filter(category = str(category))
             
             return queryList
 
